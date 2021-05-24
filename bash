@@ -7,3 +7,6 @@ do
   name2=$(basename "$i" | cut -d_ -f 1,2 | sed 's/$/.fna/g')
   mv "$i" "${name1}${name2}"
 done
+
+#Single-lines fasta files from Bio-Stars: https://www.biostars.org/p/9262/
+awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' < file.fa
