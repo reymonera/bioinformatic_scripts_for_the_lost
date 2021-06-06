@@ -1,0 +1,7 @@
+#This goes for programs I regularly use
+
+#Prokka: Execute multiple files
+for k in *.fasta; do prokka $k --outdir "$k".prokka.output --prefix PROKKA_$k; echo $k; done
+
+
+
