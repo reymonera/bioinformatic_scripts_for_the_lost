@@ -10,3 +10,6 @@ done
 
 #Single-lines fasta files from Bio-Stars: https://www.biostars.org/p/9262/
 awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' < file.fa
+
+#Extracting files that have the same format but are present in multiple directories and then copying them in a new directory
+find /home/ccastillo/sb_genomes/ecoli -name '*.gff' -exec cp -t /home/ccastillo/sb_genomes/ecoli/roary {} +
