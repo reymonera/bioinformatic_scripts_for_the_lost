@@ -13,3 +13,6 @@ awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}'
 
 #Extracting files that have the same format but are present in multiple directories and then copying them in a new directory
 find /home/ccastillo/sb_genomes/ecoli -name '*.gff' -exec cp -t /home/ccastillo/sb_genomes/ecoli/roary {} +
+
+#Extracting fasta sequences in separate files from a single multi-fasta file
+awk '/^>/ {out = substr($1, 2) ".fasta"; print > out} !/^>/ {print >> out}' Cond044.fna
