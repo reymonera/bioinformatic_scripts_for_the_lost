@@ -14,7 +14,9 @@ def substituteIdContigLines(number, filePath):
     outputFilePath = "output.fasta"
     nString = "N" * number
     fastaLines = readFasta(filePath)
-    with open(outputFilePath, 'w') as fastaFileReplaced:
+
+    tempFilePath = "temp.fasta"
+    with open(tempFilePath, 'w') as fastaFileReplaced:
         counter = 1
         for line in fastaLines:
             if line.startswith(">"):
@@ -26,6 +28,20 @@ def substituteIdContigLines(number, filePath):
                     counter += 1
             else:
                 fastaFileReplaced.write(line)
+    
+     # Leer el archivo temporal y reformatear
+    with open(tempFilePath, 'r') as tempFile:
+        tempLines = tempFile.readlines()
+    
+    with open(outputFilePath, 'w') as fastaFileReformatted:
+        #if tempLines:
+            # Conservar la primera línea
+        fastaFileReformatted.write(tempLines[0])
+        
+        fastaContent = ''.join(tempLines[1:]).replace('\n', '')
+        for i in range(0, len(fastaContent), 81):
+            fastaFileReformatted.write(fastaContent[i:i+81] + '\n')
+
     return 0
 
 def main():
