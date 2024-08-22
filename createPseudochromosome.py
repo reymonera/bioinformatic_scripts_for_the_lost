@@ -34,8 +34,6 @@ def substituteIdContigLines(number, filePath):
         tempLines = tempFile.readlines()
     
     with open(outputFilePath, 'w') as fastaFileReformatted:
-        #if tempLines:
-            # Conservar la primera línea
         fastaFileReformatted.write(tempLines[0])
         
         fastaContent = ''.join(tempLines[1:]).replace('\n', '')

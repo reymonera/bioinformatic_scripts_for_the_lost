@@ -7,6 +7,8 @@ Please do keep in mind that my coding abilities aren't that impressive, so I may
 
 Consider this more of a draft of a desperate bioinformatician.
 
-
 #### Doing PAML multiple times
 Decided to put my PAML script here so that I can keep coming if my new versions are fucked up. This one is supposed to run PAML on multiple pairs of genes and trees. This is based on the branch-node model.
+
+#### Creating Pseudochromosomes
+I was tasked with creating a pseudochromosome. Decided to do it with Python, and a simple script. This just adds N characters in the contig separations, but it also reformats it to have a nice `.fasta` file. Nothing special, but probably needed.
